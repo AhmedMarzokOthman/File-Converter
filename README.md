@@ -11,9 +11,7 @@ This is a simple file converter application built using Electron, React, and Tai
 
 ## Project Structure
 
-    ```sh
     .editorconfig .env .gitignore .prettierrc global.css index.html main.js package.json public/ fonts/ images/ README.md scripts/ handleFileConvert.js showFilesList.js tailwind.config.js
-    ```
 
 ## Installation
 
