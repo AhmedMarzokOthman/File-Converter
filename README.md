@@ -11,27 +11,35 @@ This is a simple file converter application built using Electron, React, and Tai
 
 ## Project Structure
 
-.editorconfig .env .gitignore .prettierrc global.css index.html main.js package.json public/ fonts/ images/ README.md scripts/ handleFileConvert.js showFilesList.js tailwind.config.js
+    ```sh
+    .editorconfig .env .gitignore .prettierrc global.css index.html main.js package.json public/ fonts/ images/ README.md scripts/ handleFileConvert.js showFilesList.js tailwind.config.js
+    ```
 
 ## Installation
 
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/yourusername/file-converter-electron-app.git
+   git clone https://github.com/AhmedMostafa106/File-Converter.git
    cd file-converter-electron-app
    ```
 
 2. Install the dependencies:
+   ```sh
    npm install
-
+   ```
 3. Build the CSS:
+   ```sh
    npm run build:css
+   ```
 
 ## Usage
 
 1. Start the application:
+
+   ```sh
    npm start
+   ```
 
 2. Upload files by clicking the "Upload" button.
 
