@@ -47,6 +47,15 @@ This is a simple file converter application built using Electron, React, and Tai
 
 ## Scripts
 
-- npm run build:css: Build the Tailwind CSS.
-- npm run watch:css: Watch for changes in the CSS and rebuild automatically.
-- npm start: Start the Electron application.
+- Build the Tailwind CSS.
+  ```sh
+  npm run build:css
+  ```
+- Watch for changes in the CSS and rebuild automatically.
+  ```sh
+  npm run watch:css
+  ```
+- Start the Electron application.
+  ```sh
+  npm start
+  ```
