@@ -16,7 +16,7 @@
                 <img class="size-9 mr-2 invert" src="https://www.svgrepo.com/show/514275/upload-cloud.svg" alt="downloadIcon">
                 <p>Upload</p> 
             </label>
-            <input type="file" id="uploadFile" name="uploadFile" hidden multiple />
+            <input type="file" id="uploadFile" name="uploadFile" hidden multiple/>
         </div>
         <div name="converter" class="flex items-center ml-5 mt-5">
             <select id="convertFrom" name="convertToRadio" id="" class=" px-2 py-1 text-xl font-bold bg-[#252525] text-white rounded w-40">
@@ -30,11 +30,11 @@
             </select>
         </div>
         <div name="fileList" class="flex flex-col ml-5 mt-5">
-            <h1 class="text-2xl font-bold">Files List</h1>
-            <ol id="fileList" class="text-xl font-bold px-2 py-1 mr-10">
+            <h1 class="text-2xl font-bold mb-6">Files List</h1>
+            <ol id="fileList" class="text-xl space-y-3 font-bold px-2 py-1 mr-10 shadow-2xl bg-[#252525] text-white rounded">
             </ol>
         </div>
-        <div name="convertButton" class="mx-5 absolute bottom-10 right-0">
+        <div name="convertButton" class="mx-5 flex justify-end">
             <button id="convertButton" class="px-5 py-2 text-xl font-bold text-white opacity-90 bg-red-500 hover:opacity-100 rounded mt-5">
                 Convert
             </button>
