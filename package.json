@@ -18,34 +18,28 @@
     "start": "electron .",
     "build": "electron-builder"
   },
-  "build": {
-    "asar": true,
-    "appId": "com.example.fileconverter",
-    "productName": "FileConverter",
-    "directories": {
-      "output": "dist"
-    },
-    "files": [
-      "**/*",
-      "!node_modules/*",
-      "!dist/*.map",
-      "!test/**/*",
-      "!README.md",
-      "!*.log"
-    ],
-    "npmArgs": [
-      "--production"
-    ],
-    "win": {
-      "target": "nsis"
-    },
-    "mac": {
-      "target": "dmg"
-    },
-    "linux": {
-      "target": "AppImage"
-    }
+ "build": {
+  "appId": "com.example.fileconverter",
+  "productName": "FileConverter",
+  "directories": {
+    "output": "dist"
   },
+  "files": [
+    "**/*",
+    "style/**/*",
+    "!node_modules/*",
+    "!dist/*"
+  ],
+  "win": {
+    "target": "nsis"
+  },
+  "mac": {
+    "target": "dmg"
+  },
+  "linux": {
+    "target": "AppImage"
+  }
+},
   "dependencies": {
     "png-to-ico": "^2.1.8",
     "potrace": "^2.1.8",

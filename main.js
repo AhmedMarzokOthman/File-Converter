@@ -13,12 +13,13 @@ function createMainWindow() {
         },
     });
 
-    const startUrl = url.format({
-        pathname: path.join(__dirname, 'index.html'),
-        protocol: 'file:',
-    });
+    // const startUrl = url.format({
+    //     pathname: path.join(__dirname, 'index.html'),
+    //     protocol: 'file:',
+    // });
 
-    mainWindow.loadURL(startUrl);
+    mainWindow.loadFile(path.join(__dirname, 'index.html'));
+    // mainWindow.loadURL(startUrl);
 
 }
 
