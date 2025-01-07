@@ -9,7 +9,6 @@ const path = require('path');
 const fs = require('fs');
 const { webUtils } = require('electron');
 
-
 let files = [];
 
 uploadFile.addEventListener('change', async () => {
@@ -75,20 +74,21 @@ convertButton.addEventListener('click', async () => {
     }
 
     for (const file of files) {
-        const outputDir = path.join(path.dirname(webUtils.getPathForFile(file)), 'converted'); // Create a new directory called 'converted' in the same directory as the original file
+        const filePath = webUtils.getPathForFile(file);
+        const outputDir = path.join(path.dirname(filePath), 'converted'); // Create a new directory called 'converted' in the same directory as the original file
         if (!fs.existsSync(outputDir)) {
             fs.mkdirSync(outputDir);
         } // Create the output directory if it doesn't exist
 
         const outputFilePath = path.join(
             outputDir,
-            path.basename(webUtils.getPathForFile(file), `.${convertFromValue}`) + `.${convertToValue}`
+            path.basename(filePath, `.${convertFromValue}`) + `.${convertToValue}`
         ); // Create the output file path
 
         // Perform conversion
         if (convertFromValue === 'png' && convertToValue === 'svg') {
             new Promise((resolve, reject) => {
-                potrace.trace(webUtils.getPathForFile(file), (err, svg) => {
+                potrace.trace(filePath, (err, svg) => {
                     if (err) {
                         reject(err);
                         return;
@@ -99,25 +99,81 @@ convertButton.addEventListener('click', async () => {
                 });
             });
 
-            // sharp(webUtils.getPathForFile(file))
-            // .toFormat('svg')
-            // .toFile(outputFilePath);
+            console.log('Conversion successful');
         } else if (convertFromValue === 'svg' && convertToValue === 'png') {
-            // new Promise((resolve, reject) => {
-            //     potrace.trace(webUtils.getPathForFile(file), (err, png) => {
-            //         if (err) {
-            //             reject(err);
-            //             return;
-            //         }
-            //         fs.writeFileSync(outputFilePath, png);
-
-            //         resolve();
-            //     });
-            // });
-            await sharp(webUtils.getPathForFile(file))
+            await sharp(filePath)
                 .toFormat('png')
-                .toFile(outputFilePath);
-        } else {
+                .toFile(outputFilePath, (err, info) => {
+                    if (err) {
+                        console.error(err);
+                        return;
+                    }
+                    console.log("Image converted successfully");
+                });
+
+            console.log('Conversion successful');
+        } else if (convertFromValue === 'png' && convertToValue === 'jpeg') {
+            await sharp(filePath)
+                .toFormat('jpeg')
+                .toFile(outputFilePath, (err, info) => {
+                    if (err) {
+                        console.error(err);
+                        return;
+                    }
+                    console.log("Image converted successfully");
+                });
+
+            console.log('Conversion successful');
+
+        } else if (convertFromValue === 'jpeg' && convertToValue === 'png') {
+            await sharp(filePath)
+                .toFormat('png')
+                .toFile(outputFilePath, (err, info) => {
+                    if (err) {
+                        console.error(err);
+                        return;
+                    }
+                    console.log("Image converted successfully");
+                });
+
+            console.log('Conversion successful');
+
+        }
+        else if (convertFromValue === 'svg' && convertToValue === 'jpeg') {
+            await sharp(filePath)
+                .toFormat('jpeg')
+                .toFile(outputFilePath, (err, info) => {
+                    if (err) {
+                        console.error(err);
+                        return;
+                    }
+                    console.log("Image converted successfully");
+                });
+
+            console.log('Conversion successful');
+
+        } else if (convertFromValue === 'png' && convertToValue === 'ico') {
+            await sharp(filePath)
+                .resize(256, 256)
+                .toFormat('ico')
+                .toFile(outputFilePath, (err, info) => {
+                    if (err) {
+                        console.error(err);
+                        return;
+                    }
+                    console.log("Image converted successfully");
+                });
+
+            console.log('Conversion successful');
+
+        }
+        // else if (convertFromValue === 'docx' && convertToValue === 'pdf') {
+        // }
+        // else if (convertFromValue === 'pdf' && convertToValue === 'docx') {
+
+
+        // }
+        else {
             throw new Error(`Unsupported conversion: ${convertFrom} to ${convertTo}`);
         }
     }

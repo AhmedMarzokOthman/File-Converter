@@ -64,3 +64,6 @@ jspm_packages/
 
 # Windows system files
 Thumbs.db
+
+# test files
+.test.txt
