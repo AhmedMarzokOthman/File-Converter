@@ -1,5 +1,5 @@
 {
-  "name": "file-converter-electron-app",
+  "name": "file-converter",
   "version": "1.0.0",
   "description": "file converter program",
   "keywords": [
@@ -13,33 +13,31 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:css": "tailwindcss -i ./global.css -o ./dist/output.css",
-    "watch:css": "tailwindcss -i ./global.css -o ./dist/output.css --watch",
+    "build:css": "tailwindcss -i ./style/global.css -o ./dist/output.css",
+    "watch:css": "tailwindcss -i ./style/global.css -o ./dist/output.css --watch",
     "start": "electron .",
     "build": "electron-builder"
   },
- "build": {
-  "appId": "com.example.fileconverter",
-  "productName": "FileConverter",
-  "directories": {
-    "output": "dist"
+  "build": {
+    "appId": "com.example.fileconverter",
+    "productName": "FileConverter",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "style/dist/**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
   },
-  "files": [
-    "**/*",
-    "style/**/*",
-    "!node_modules/*",
-    "!dist/*"
-  ],
-  "win": {
-    "target": "nsis"
-  },
-  "mac": {
-    "target": "dmg"
-  },
-  "linux": {
-    "target": "AppImage"
-  }
-},
   "dependencies": {
     "png-to-ico": "^2.1.8",
     "potrace": "^2.1.8",

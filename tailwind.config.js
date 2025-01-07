@@ -1,13 +1,7 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-  devtool: false,
-  content: ['./index.html', './main.js'],
+  content: ["./index.html", "./scripts/**/*.js"],
   theme: {
-    extend: {
-      fontFamily: {
-        'alexandria': ['Alexandria', 'sans-serif'],
-      },
-    },
+    extend: {},
   },
   plugins: [],
-}
+};
