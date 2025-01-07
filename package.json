@@ -16,18 +16,44 @@
     "build:css": "tailwindcss -i ./global.css -o ./dist/output.css",
     "watch:css": "tailwindcss -i ./global.css -o ./dist/output.css --watch",
     "start": "electron .",
-    "build": "npm run build:css && npm run build:js",
-    "build:js": "tsc"
+    "build": "electron-builder"
+  },
+  "build": {
+    "asar": true,
+    "appId": "com.example.fileconverter",
+    "productName": "FileConverter",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!node_modules/*",
+      "!dist/*.map",
+      "!test/**/*",
+      "!README.md",
+      "!*.log"
+    ],
+    "npmArgs": [
+      "--production"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
   },
   "dependencies": {
-    "electron": "^33.2.1",
+    "png-to-ico": "^2.1.8",
     "potrace": "^2.1.8",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
     "sharp": "^0.33.5"
   },
   "devDependencies": {
     "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
     "tailwindcss": "^3.4.17"
   }
 }

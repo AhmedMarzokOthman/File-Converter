@@ -5,46 +5,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File Converter</title>
-    <link href="dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="./global.css">
+    <link href="dist/global.css" rel="stylesheet">
+
 </head>
 
 <body>
-    <div id="root" class="">
+    <div id="root" class="flex flex-col">
         <div name="uploadFile" class="flex flex-col justify-center items-center mt-10">
             <label for="uploadFile"
                 class="flex px-10 py-7 justify-center items-center text-3xl font-bold text-white bg-red-500 rounded cursor-pointer">
-                <img class="size-9 mr-2 invert" src="https://www.svgrepo.com/show/514275/upload-cloud.svg" alt="downloadIcon">
-                <p>Upload</p> 
+                <img class="size-9 mr-2 invert" src="https://www.svgrepo.com/show/514275/upload-cloud.svg"
+                    alt="downloadIcon">
+                <p>Upload</p>
             </label>
-            <input type="file" id="uploadFile" name="uploadFile" hidden multiple/>
+            <input type="file" id="uploadFile" name="uploadFile" hidden multiple />
         </div>
-        <div name="converter" class="flex items-center ml-5 mt-5">
-            <select id="convertFrom" name="convertToRadio" id="" class=" px-2 py-1 text-xl font-bold bg-[#252525] text-white rounded w-40">
+        <div name="converter" class="flex items-center ml-5 mt-5 ">
+            <!-- <select id="convertFrom" name="convertToRadio" id=""
+                class=" px-2 py-1 text-xl font-bold bg-[#252525] text-white rounded w-40">
                 <option value="png">PNG</option>
                 <option value="svg">SVG</option>
                 <option value="jpeg">JPEG</option>
-                <!-- <option value="docx">DOCX</option> -->
-                <!-- <option value="pdf">PDF</option> -->
-                <!-- <option value="ico">ICO</option> -->
-            </select>
-            <h1 class="text-2xl font-bold mx-5"> To </h1>
-            <select id="convertTo" name="convertToRadio" id="" class="px-2 py-1 text-xl font-bold bg-[#252525] text-white rounded w-40">
-                <option value="svg">SVG</option>
-                <option value="png">PNG</option>
-                <option value="jpeg">JPEG</option>
-                <!-- <option value="pdf">PDF</option> -->
-                <!-- <option value="docx">DOCX</option> -->
-                <!-- <option value="ico">ICO</option> -->
-            </select>
+                <option value="docx">DOCX</option>
+                <option value="pdf">PDF</option>
+                <option value="ico">ICO</option>
+            </select> -->
+            <h1 class="text-2xl font-bold"> Convert To </h1>
+            <div class="ml-5">
+                <select id="convertTo" name="convertToRadio" id=""
+                    class="px-2 py-1 text-xl font-bold bg-[#252525] text-white rounded w-40">
+                    <option value="svg">SVG</option>
+                    <option value="png">PNG</option>
+                    <option value="jpeg">JPEG</option>
+                    <option value="pdf">PDF</option>
+                    <option value="docx">DOCX</option>
+                    <option value="ico">ICO</option>
+                </select>
+            </div>
         </div>
         <div name="fileList" class="flex flex-col ml-5 mt-5">
             <h1 class="text-2xl font-bold mb-6">Files List</h1>
-            <ol id="fileList" class="text-xl space-y-3 font-bold px-2 py-1 mr-10 shadow-2xl bg-[#252525] text-white rounded">
+            <ol id="fileList"
+                class="text-xl space-y-3 font-bold px-2 py-1 mr-10 shadow-2xl bg-[#252525] text-white rounded ">
             </ol>
         </div>
-        <div name="convertButton" class="mx-5 flex justify-end">
-            <button id="convertButton" class="px-5 py-2 text-xl font-bold text-white opacity-90 bg-red-500 hover:opacity-100 rounded mt-5">
+        <div class="mx-5 flex justify-end mb-5">
+            <button id="convertButton"
+                class="px-5 py-2 text-xl font-bold text-white opacity-90 bg-red-500 hover:opacity-100 rounded mt-5">
                 Convert
+            </button>
+        </div>
+        <div class="mx-5 flex justify-end mb-5">
+            <button id="openFileLocationButton"
+                class="px-5 py-2 text-xl font-bold text-white opacity-90 bg-red-500 hover:opacity-100 rounded mt-5">
+                Open File Location
             </button>
         </div>
     </div>
@@ -52,5 +67,3 @@
 </body>
 
 </html>
-
-
